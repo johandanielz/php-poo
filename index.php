@@ -8,7 +8,7 @@ $libroUno = new Libro(
     isbn: "978-84",
     anio: 1967
 );
-
+    
 $libroDos = new Libro(
     titulo: "El quijote",
     isbn: "978-85",
@@ -17,3 +17,17 @@ $libroDos = new Libro(
 
 echo $libroUno->descripcion() . PHP_EOL;
 echo $libroDos->descripcion() . PHP_EOL;
+
+/* try {
+    $libroUno->prestar();
+} catch (LogicException $e) {
+    echo $e->getMessage() . PHP_EOL;
+} */
+
+/* try {
+    $libroUno->devolver();
+} catch (LogicException $e) {
+    echo $e->getMessage() . PHP_EOL;
+} */
+
+echo $libroUno->isDisponible() ? "Disponible" : "Prestado";

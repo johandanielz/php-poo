@@ -27,9 +27,35 @@ try {
 echo ($libroUno->isDisponible() ? "Disponible" : "Prestado") . PHP_EOL;
 
 try {
+    $libroUno->prestar();
+} catch (LogicException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
+
+echo ($libroUno->isDisponible() ? "Disponible" : "Prestado") . PHP_EOL;
+
+try {
     $libroUno->devolver();
 } catch (LogicException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
 
 echo ($libroUno->isDisponible() ? "Disponible" : "Prestado") . PHP_EOL;
+
+try {
+    $libroDos->devolver();
+} catch (LogicException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
+
+echo ($libroDos->isDisponible() ? "Disponible" : "Prestado") . PHP_EOL;
+
+try {
+    $libroTres = new Libro(
+        titulo: "La María",
+        isbn: "978-86",
+        anio: 2027
+    );
+} catch (InvalidArgumentException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}

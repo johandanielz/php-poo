@@ -46,13 +46,12 @@ class Libro
         }
 
         $this->disponible = false;
-
     }
 
     public function devolver(): void
     {
         if ($this->disponible){
-            throw new \LogicException("El libro '{$this->titulo}' ya se ha devuelto.");
+            throw new \LogicException("El libro '{$this->titulo}' no se ha prestado.");
         }
 
         $this->disponible = true;
@@ -68,5 +67,4 @@ class Libro
             );
         }
     }
-
 }

@@ -41,7 +41,7 @@ class Libro
 
     public function prestar(): void
     {
-        if (!$this->disponible){
+        if (!$this->disponible) {
             throw new \LogicException("El libro '{$this->titulo}' ya se encuentra prestado.");
         }
 
@@ -50,7 +50,7 @@ class Libro
 
     public function devolver(): void
     {
-        if ($this->disponible){
+        if ($this->disponible) {
             throw new \LogicException("El libro '{$this->titulo}' no se ha prestado.");
         }
 

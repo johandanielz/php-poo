@@ -6,6 +6,7 @@ class Socio
 {
     private const int MAX_PRESTAMOS = 3;
     private static int $totalSocios = 0;
+    /** @var Libro[] */
     private array $librosPrestados = [];
 
     public function __construct(

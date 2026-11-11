@@ -39,6 +39,11 @@ class Libro
         return $this->disponible;
     }
 
+    /**
+     * Presta el libro
+     *
+     * @throws \LogicException si el libro ya está prestado
+     */
     public function prestar(): void
     {
         if (!$this->disponible) {
@@ -48,6 +53,11 @@ class Libro
         $this->disponible = false;
     }
 
+    /**
+     * Marca el libro como disponible
+     *
+     * @throws \LogicException si el libro no se ha prestado
+     */
     public function devolver(): void
     {
         if ($this->disponible) {
@@ -57,6 +67,11 @@ class Libro
         $this->disponible = true;
     }
 
+    /**
+     * Valida que el año ingresado no sea mayor al año actual
+     *
+     * @throws \InvalidArgumentException si el año ingresado es mayor al año actual
+     */
     private function validarAnio(int $anioIngresado): void
     {
         $anioActual = (int) date('Y');

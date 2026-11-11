@@ -6,6 +6,11 @@ class Libro
 {
     private bool $disponible = true;
 
+    /**
+     * Crea un libro
+     *
+     * @throws \InvalidArgumentException si el año del libro es mayor al actual
+     */
     public function __construct(
         private string $titulo,
         private readonly string $isbn,

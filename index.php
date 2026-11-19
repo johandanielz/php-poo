@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 require_once __DIR__ . '/Libro.php';
+require_once __DIR__ . '/Socio.php';
 
 $libroUno = new Libro(
     titulo: "Cien años de soledad",
@@ -60,8 +61,6 @@ try {
     echo $e->getMessage() . PHP_EOL;
 }
 
-require_once __DIR__ . '/Socio.php';
-
 $ana = new Socio("Ana", "1001");
 
 $libros = [
@@ -87,6 +86,6 @@ try {
     echo $e->getMessage() . PHP_EOL;
 }
 
-echo $libros[3]->isDisponible() ? "Disponible" . PHP_EOL : "Prestado" . PHP_EOL;
+echo ($libros[3]->isDisponible() ? "Disponible" : "Prestado") . PHP_EOL;
 
 echo "Socios registrados: " . Socio::getTotalSocios() . PHP_EOL;

@@ -59,3 +59,34 @@ try {
 } catch (InvalidArgumentException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
+
+require_once __DIR__ . '/Socio.php';
+
+$ana = new Socio("Ana", "1001");
+
+$libros = [
+    new Libro("Rayuela", "978-90", 1963),
+    new Libro("Ficciones", "978-91", 1944),
+    new Libro("El Aleph", "978-92", 1949),
+    new Libro("Pedro Páramo", "978-93", 1955),
+];
+
+try {
+    foreach ($libros as $libro) {
+        $ana->prestarLibro($libro);
+        echo "Prestado: " . $libro->getTitulo() . PHP_EOL;
+    }
+} catch (LogicException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
+
+$luis = new Socio("Luis", "1002");
+try {
+    $luis->prestarLibro($libros[0]);
+} catch (LogicException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
+
+echo $libros[3]->isDisponible() ? "Disponible" . PHP_EOL : "Prestado" . PHP_EOL;
+
+echo "Socios registrados: " . Socio::getTotalSocios() . PHP_EOL;

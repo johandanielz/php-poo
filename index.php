@@ -3,6 +3,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/Libro.php';
 require_once __DIR__ . '/Socio.php';
+require_once __DIR__ . '/Revista.php';
 
 $libroUno = new Libro(
     titulo: "Cien años de soledad",
@@ -89,3 +90,16 @@ try {
 echo ($libros[3]->isDisponible() ? "Disponible" : "Prestado") . PHP_EOL;
 
 echo "Socios registrados: " . Socio::getTotalSocios() . PHP_EOL;
+
+try {
+    $revistaUno = new Revista("Enter.com", 0, 2025);
+} catch (InvalidArgumentException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
+
+try {
+    $revistaDos = new Revista("Vea", 1, 2025);
+    echo $revistaDos->descripcion() . " - edición " . $revistaDos->getNumeroEdicion() . PHP_EOL;
+} catch (InvalidArgumentException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}

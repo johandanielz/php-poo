@@ -6,6 +6,11 @@ abstract class Material
 {
     private bool $disponible = true;
 
+    /**
+     * Crea un material
+     *
+     * @throws \InvalidArgumentException si el año del material es mayor al actual
+     */
     public function __construct(
         private string $titulo,
         private int $anio
@@ -28,15 +33,15 @@ abstract class Material
         return $this->anio;
     }
 
-     public function isDisponible(): bool
+    public function isDisponible(): bool
     {
         return $this->disponible;
     }
 
-     /**
-     * Presta el libro
+    /**
+     * Presta el material
      *
-     * @throws \LogicException si el libro ya está prestado
+     * @throws \LogicException si el material ya está prestado
      */
     public function prestar(): void
     {
@@ -48,9 +53,9 @@ abstract class Material
     }
 
     /**
-     * Marca el libro como disponible
+     * Marca el material como disponible
      *
-     * @throws \LogicException si el libro no se ha prestado
+     * @throws \LogicException si el material no se ha prestado
      */
     public function devolver(): void
     {
@@ -78,5 +83,4 @@ abstract class Material
     }
 
     abstract public function diasPrestamo(): int;
-
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/Libro.php';
 require_once __DIR__ . '/Socio.php';
 require_once __DIR__ . '/Revista.php';
+require_once __DIR__ . '/DVD.php';
 
 $libroUno = new Libro(
     titulo: "Cien años de soledad",
@@ -100,6 +101,19 @@ try {
 try {
     $revistaDos = new Revista("Vea", 1, 2025);
     echo $revistaDos->descripcion() . " - edición " . $revistaDos->getNumeroEdicion() . PHP_EOL;
+} catch (InvalidArgumentException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
+
+try {
+    $dvdUno = new DVD("Un verano sin ti", 4, 2023);
+} catch (InvalidArgumentException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
+
+try {
+    $dvdDos = new DVD("X 100 Pre", 65, 2019);
+    echo $dvdDos->descripcion() . " - " . $dvdDos->getDuracionMinutos() . " min" . PHP_EOL;
 } catch (InvalidArgumentException $e) {
     echo $e->getMessage() . PHP_EOL;
 }

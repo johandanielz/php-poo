@@ -123,7 +123,7 @@ $revista = new Revista("Vea", 2, 2026);
 $dvd = new DVD("NSLQVAPM", 80, 2023);
 try {
     $alexa->prestarMaterial($revista);
-    echo $revista->descripcion() . " - edición    " . $revista->getNumeroEdicion() . PHP_EOL;
+    echo $revista->descripcion() . " - edición " . $revista->getNumeroEdicion() . PHP_EOL;
     $alexa->prestarMaterial($dvd);
     echo $dvd->descripcion() . " - " . $dvd->getDuracionMinutos() . " min" . PHP_EOL;
 } catch (LogicException $e) {
@@ -134,5 +134,5 @@ $libroCuatro = new Libro("Hábitos atómicos", "978-94", 2018);
 
 $materiales = [$libroCuatro, $revista, $dvd];
 foreach ($materiales as $material) {
-    echo $material->descripcion() . " - " . $material->diasPrestamo() . " días " . PHP_EOL;
+    echo $material->descripcion() . " - " . $material->diasPrestamo() . " días" . PHP_EOL;
 }

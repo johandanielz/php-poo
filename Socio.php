@@ -6,8 +6,8 @@ class Socio
 {
     private const int MAX_PRESTAMOS = 3;
     private static int $totalSocios = 0;
-    /** @var Libro[] */
-    private array $librosPrestados = [];
+    /** @var Material[] */
+    private array $materialesPrestados = [];
 
     public function __construct(
         private string $nombre,
@@ -22,20 +22,20 @@ class Socio
     }
 
     /**
-     * Presta un libro a un socio
+     * Presta un material a un socio
      *
-     * @throws \LogicException si alcanzó el límite de préstamos o si el libro ya está prestado
+     * @throws \LogicException si alcanzó el límite de préstamos o si el material ya está prestado
      */
-    public function prestarLibro(Libro $libro): void
+    public function prestarMaterial(Material $material): void
     {
-        if (count($this->librosPrestados) >= self::MAX_PRESTAMOS) {
+        if (count($this->materialesPrestados) >= self::MAX_PRESTAMOS) {
             throw new \LogicException(
                 "El socio '{$this->nombre}' alcanzó el límite de " . self::MAX_PRESTAMOS . " préstamos"
             );
         }
 
-        $libro->prestar();
+        $material->prestar();
 
-        $this->librosPrestados[] = $libro;
+        $this->materialesPrestados[] = $material;
     }
 }

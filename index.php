@@ -74,7 +74,7 @@ $libros = [
 
 try {
     foreach ($libros as $libro) {
-        $ana->prestarLibro($libro);
+        $ana->prestarMaterial($libro);
         echo "Prestado: " . $libro->getTitulo() . PHP_EOL;
     }
 } catch (LogicException $e) {
@@ -83,7 +83,7 @@ try {
 
 $luis = new Socio("Luis", "1002");
 try {
-    $luis->prestarLibro($libros[0]);
+    $luis->prestarMaterial($libros[0]);
 } catch (LogicException $e) {
     echo $e->getMessage() . PHP_EOL;
 }

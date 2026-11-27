@@ -117,3 +117,15 @@ try {
 } catch (InvalidArgumentException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
+
+$alexa = new Socio("Alexa", "1003");
+$revista = new Revista("Vea", 2, 2026);
+$dvd = new DVD("NSLQVAPM", 80, 2023);
+try {
+    $alexa->prestarMaterial($revista);
+    echo $revista->descripcion() . " - edición " . $revista->getNumeroEdicion() . PHP_EOL;
+    $alexa->prestarMaterial($dvd);
+    echo $dvd->descripcion() . " - " . $dvd->getDuracionMinutos() . " min" . PHP_EOL;
+} catch (LogicException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
